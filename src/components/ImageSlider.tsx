@@ -11,6 +11,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import SwiperType from 'swiper'
 import { useEffect } from 'react'
 import { cn } from "@/lib/utils";
+import { MotionDiv } from "./MotionDiv";
 
 type ImageSliderProps = {
   images:Array<{url:string; className?:string}>
@@ -26,7 +27,12 @@ export default function ImageSlider({images}:ImageSliderProps) {
   },[swiper])
 
   return (
-    <div className="w-full overflow-hidden rounded-xl mt-6 aspect-video group relative">
+    <MotionDiv initial={{opacity:0, y:100}}  whileInView={{opacity:1,  y:0, type:'spring'}} transition={{
+      damping:5,
+      stiffness:'50',
+      mass:0.1,
+      velocity:0.1
+    }}  className="w-full overflow-hidden rounded-xl mt-6 aspect-video group relative">
       <div className="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition flex items-center px-4">
         <div className="flex w-full justify-between ">
           <Button className={cn('p-2 flex items-center mr-auto justify-center rounded-full', activeIndex === 0 ? 'hidden'  : '')} onClick={() => swiper?.slidePrev()}>
@@ -56,7 +62,7 @@ export default function ImageSlider({images}:ImageSliderProps) {
 
         ) )}
       </Swiper>
-    </div>
+    </MotionDiv>
   );
 }
 

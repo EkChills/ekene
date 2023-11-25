@@ -6,9 +6,41 @@ import { ExternalLink } from "lucide-react";
 import ImageSlider from "@/components/ImageSlider";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
+import TypeAnimationProvider from "@/components/TypeAnimation";
+import { MotionLi } from "@/components/MotionLi";
 
 const manrope = Manrope({ weight: ["400"], subsets: ["latin"] });
 const sometypeMono = Sometype_Mono({ subsets: ["latin"] });
+
+// const skillsVariant={
+//   initial:{opacity:0, scale:0},
+//   animate:{
+//     opacity:1, scale:1,
+//     transition:{
+//       delay:0.1 * idx,
+//       duration:0.4,
+//       type:"spring",
+//       stiffness:'260',
+//       damping:20
+//     }
+//   }
+// }
+
+function variant(idx:number) {
+  return {
+    initial:{opacity:0, scale:0},
+    animate:{
+      opacity:1, scale:1,
+      transition:{
+        delay:0.1 * idx,
+        duration:0.4,
+        type:"spring",
+        stiffness:'260',
+        damping:20
+      }
+    }
+  }
+}
 
 export default function Home() {
   return (
@@ -19,11 +51,9 @@ export default function Home() {
         >
           <div className="flex flex-col">
             <div className="flex justify-between">
-              <h1 className="uppercase text-4xl sm:text-5xl md:text-6xl  font-bold">
-                Ekene
-              </h1>
+              <TypeAnimationProvider first="EKENE" second="EK" third="EKEN" fourth="EKENE" className="uppercase text-4xl sm:text-5xl md:text-6xl  font-bold" />
               <h1 className="uppercase text-4xl sm:text-5xl md:text-6xl font-bold">
-                Ezeifeoma
+              <TypeAnimationProvider first="EZEIFEOMA" second="EZEIF" third="EZEIFEOM" fourth="EZEIFEOMA" className="uppercase text-4xl sm:text-5xl md:text-6xl  font-bold" />
               </h1>
             </div>
             <span className="w-full h-2 bg-black mt-4" />
@@ -78,23 +108,23 @@ export default function Home() {
           <div className="grid grid-cols-3 antialiased">
             <ul className="">
               {r1.map((tech, idx) => (
-                <li key={idx} className="font-medium">
+                <MotionLi initial="initial" animate="animate" variants={variant(idx)} key={idx} className="font-medium">
                   {tech}
-                </li>
+                </MotionLi>
               ))}
             </ul>
             <ul className="">
               {r2.map((tech, idx) => (
-                <li key={idx} className="font-medium">
-                  {tech}
-                </li>
+                <MotionLi initial="initial" animate="animate" variants={variant(idx)} key={idx} className="font-medium">
+                {tech}
+              </MotionLi>
               ))}
             </ul>
             <ul className="">
               {r3.map((tech, idx) => (
-                <li key={idx} className="font-medium">
-                  {tech}
-                </li>
+                <MotionLi initial="initial" animate="animate" variants={variant(idx)} key={idx} className="font-medium">
+                {tech}
+              </MotionLi>
               ))}
             </ul>
           </div>
@@ -117,7 +147,7 @@ export default function Home() {
                 target="_blank"
                 className={cn(
                   buttonVariants({ variant: "outline" }),
-                  "bg-transparent text-slate-300"
+                  "bg-transparent text-black"
                 )}
               >
                 Live
@@ -127,7 +157,7 @@ export default function Home() {
                 target="_blank"
                 className={cn(
                   buttonVariants({ variant: "outline" }),
-                  "bg-transparent text-slate-300"
+                  "bg-transparent text-black"
                 )}
               >
                 Github
@@ -137,7 +167,7 @@ export default function Home() {
           <div>
             <ImageSlider images={secondProject} />
             <span className="flex gap-2 text-lg font-semibold uppercase mt-6">
-              <h3>01</h3>
+              <h3>02</h3>
               <h3 className="font-bold">VibeChat</h3>
             </span>
             <p className=" text-base font-medium">
@@ -150,7 +180,7 @@ export default function Home() {
                 target="_blank"
                 className={cn(
                   buttonVariants({ variant: "outline" }),
-                  "bg-transparent text-slate-300"
+                  "bg-transparent text-black"
                 )}
               >
                 Live
@@ -160,7 +190,7 @@ export default function Home() {
                 target="_blank"
                 className={cn(
                   buttonVariants({ variant: "outline" }),
-                  "bg-transparent text-slate-300"
+                  "bg-transparent text-black"
                 )}
               >
                 Github
@@ -170,7 +200,7 @@ export default function Home() {
           <div>
             <ImageSlider images={thirdProject} />
             <span className="flex gap-2 text-lg font-semibold uppercase mt-6">
-              <h3>01</h3>
+              <h3>03</h3>
               <h3 className="font-bold">Damnify</h3>
             </span>
             <p className=" text-base font-medium">
@@ -183,7 +213,7 @@ export default function Home() {
                 target="_blank"
                 className={cn(
                   buttonVariants({ variant: "outline" }),
-                  "bg-transparent text-slate-300"
+                  "bg-transparent text-black"
                 )}
               >
                 Live
@@ -193,7 +223,7 @@ export default function Home() {
                 target="_blank"
                 className={cn(
                   buttonVariants({ variant: "outline" }),
-                  "bg-transparent text-slate-300"
+                  "bg-transparent text-black"
                 )}
               >
                 Github
