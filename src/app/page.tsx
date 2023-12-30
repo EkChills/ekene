@@ -1,3 +1,5 @@
+"use client"
+
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Image from "next/image";
 import { Monoton, Manrope, Sometype_Mono } from "next/font/google";
@@ -8,6 +10,8 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import TypeAnimationProvider from "@/components/TypeAnimation";
 import { MotionLi } from "@/components/MotionLi";
+import Intro from "@/components/Intro";
+import { MotionDiv } from "@/components/MotionDiv";
 
 const manrope = Manrope({ weight: ["400"], subsets: ["latin"] });
 const sometypeMono = Sometype_Mono({ subsets: ["latin"] });
@@ -42,9 +46,45 @@ function variant(idx:number) {
   }
 }
 
+type VariantsType = {
+  [VariantName:string]:{
+    [Vattr:string]:string | number | {
+      [val:string]:string | number
+    }
+  }
+}
+
+
+
+const anim = (variants:VariantsType) => {
+  return {
+      initial:"initial",
+      animate:"enter",
+      exit:"exit",
+      variants
+  }
+}
+
+const trans:VariantsType = {
+  initial:{
+    opacity:0,
+  },
+  enter:{
+    opacity:1,
+    transition:{
+      delay:0.3
+    }
+  },
+  exit:{
+    opacity:0
+  }
+}
+
 export default function Home() {
   return (
-    <main className="px-4 sm:px-6 pt-4 min-h-screen bg-[#A6A6A6] pb-6">
+    <>
+    <Intro />
+    <MotionDiv {...anim(trans)} className="px-4 sm:px-6 pt-4 min-h-screen bg-[#A6A6A6] pb-6">
       <MaxWidthWrapper>
         <header
           className={cn("flex flex-col antialiased", sometypeMono.className)}
@@ -250,6 +290,7 @@ export default function Home() {
             </div>
         </footer>
       </MaxWidthWrapper>
-    </main>
+    </MotionDiv>
+    </>
   );
 }
