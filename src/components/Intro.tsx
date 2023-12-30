@@ -31,7 +31,8 @@ const int:VariantsType = {
     top:"100vh",
     opacity:0.8,
     transition: {
-      duration:0.6
+      duration:0.6,
+      delay:0.2
     }
   },
   exit:{
