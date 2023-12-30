@@ -72,7 +72,8 @@ const trans:VariantsType = {
   enter:{
     opacity:1,
     transition:{
-      delay:0.5
+      delay:0.3,
+      duration:0.4
     }
   },
   exit:{
