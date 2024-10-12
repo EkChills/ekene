@@ -322,7 +322,7 @@ export default function Home() {
                 true power lies in its instant collaboration capabilities.
                 Invite team members, classmates, or friends to join your digital
                 workspace, where every edit, addition, or change is reflected in
-                real-time across all participants' screens.
+                real-time across all participants&apos; screens.
               </p>
               <div className="flex gap-4 mt-2">
                 <Link
