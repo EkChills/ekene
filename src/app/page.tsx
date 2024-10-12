@@ -350,7 +350,7 @@ export default function Home() {
             <div>
               <ImageSlider images={fourthProject} />
               <span className="flex gap-2 text-lg font-semibold uppercase mt-6">
-                <h3>03</h3>
+                <h3>04</h3>
                 <h3 className="font-bold">Damnify</h3>
               </span>
               <p className=" text-base font-medium">
