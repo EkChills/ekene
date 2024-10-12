@@ -9,21 +9,27 @@ export const r1 = [
   'javascript',
   'next.js',
   'react',
-  'vue js',
+  "Angular js"
 ]
 
 export const r2 = [
-  'tailwindcss',
   'typescript',
+  'golang',
   'framer motion',
-  'prisma',
+  'tailwindcss',
 ]
 export const r3 = [
  
 
   'drizzle orm',
   'next auth',
-  'supabase'
+  'supabase',
+  'prisma',
+]
+export const r4 = [
+ "docker",
+ "github actions",
+ 'openai',
 ]
 
 export const firstProject = [
@@ -54,6 +60,17 @@ export const secondProject = [
 ]
 
 export const thirdProject = [
+  {
+    url: "/assets/draft1.png",   
+     className:'object-left-top'
+  },
+  {
+    url: "/assets/draft3.png",   
+     className:'object-right-top'
+  }
+]
+
+export const fourthProject = [
   {
     url:'/assets/damnify-3.png',
     className:'object-left-top'
